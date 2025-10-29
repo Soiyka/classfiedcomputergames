@@ -78,7 +78,7 @@ $amt = ceil($total / $limit);
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="styles.css">
-    <title>Классификация компьтерных игр</title>
+    <title>Классификация компьтерных игр xdd</title>
 </head>
 <body>
     <style>
