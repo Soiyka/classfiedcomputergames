@@ -2,11 +2,6 @@
 session_start();
 
 
-
-$error = '';
-$email = '';
-
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = trim($_POST['email']);
             $password = $_POST['password'];
@@ -24,7 +19,7 @@ $email = '';
     
                 
                 // Ищем пользователя по email
-            $stmt = $pdo->prepare("SELECT id_user, username, password, email FROM User WHERE email = ?");
+            $stmt = $pdo->prepare("SELECT id_user, username, password, email, role FROM User WHERE email = ?");
             $stmt->execute([$email]);
             $user = $stmt->fetch();
             
@@ -36,6 +31,7 @@ $email = '';
                         $_SESSION['user_id'] = $user['id_user'];
                         $_SESSION['username'] = $user['username'];
                         $_SESSION['email'] = $user['email'];
+                        $_SESSION['role'] = $user['role'];
                          header('Location: index.php');
     
                         exit;
@@ -47,13 +43,11 @@ $email = '';
                 else{
                     echo "Пользователь не неайден";
                 }
+            
         }    
-     {        
-    }
+            
 
 ?>
-
-<!DOCTYPE HTML>
 <!DOCTYPE html>
 <html lang="ru">
     <head>
